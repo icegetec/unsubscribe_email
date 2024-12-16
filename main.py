@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask, request
 import sqlite3
 
@@ -6,6 +8,7 @@ app = Flask(__name__)
 # Inicializa o banco de dados
 def init_db():
     conn = sqlite3.connect('emails.db')  # Conecta ou cria o arquivo do banco de dados
+    cursor = conn.cursor()
 # Cria a tabela se não existir
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS unsubscribed_emails (
